@@ -65,7 +65,8 @@ class PokerPlayerAPI(Resource):
     def __get_bid(self, data):
         #   -- call --
         #   (bid == min_bid) and (min_bid > 0)
-        print(data)
+
+
         if data["hand"].count("A") >1 and data["board"].count("A") > 0:
             return data["max_bid"]
 
@@ -104,6 +105,26 @@ class PokerPlayerAPI(Resource):
             return data["max_bid"]
 
         if data["hand"].count("2") >1 and data["board"].count("2") > 0:
+            return data["max_bid"]
+
+        r = []
+        print(data)
+        for c in data["hand"]:
+            r.append(c[0])
+        for c in data["board"]:
+            r.append(c[0])
+        seen = set()
+        uniq = []
+        dub = {}
+        for x in r:
+            if x not in seen:
+                uniq.append(x)
+                seen.add(x)
+                dub[x] = 1
+
+            else:
+                dub[x] = dub[x] + 1
+        if dub[x] > 2:
             return data["max_bid"]
 
         return data["min_bid"]
