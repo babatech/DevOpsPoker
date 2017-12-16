@@ -66,44 +66,44 @@ class PokerPlayerAPI(Resource):
         #   -- call --
         #   (bid == min_bid) and (min_bid > 0)
         print(data)
-        if data["hand"].count("A") >1:
+        if data["hand"].count("A") >1 and data["board"].count("A") > 0:
             return data["max_bid"]
 
-        if data["hand"].count("K") >1:
+        if data["hand"].count("K") >1 and data["board"].count("K") > 0:
             return data["max_bid"]
 
-        if data["hand"].count("Q") >1:
+        if data["hand"].count("Q") >1 and data["board"].count("Q") > 0:
             return data["max_bid"]
 
-        if data["hand"].count("J") >1:
+        if data["hand"].count("J") >1 and data["board"].count("J") > 0:
             return data["max_bid"]
 
-        if data["hand"].count("T") >1:
+        if data["hand"].count("T") >1 and data["board"].count("T") > 0:
             return data["max_bid"]
 
-        if data["hand"].count("9") >1:
+        if data["hand"].count("9") >1 and data["board"].count("9") > 0:
             return data["max_bid"]
 
 
-        if data["hand"].count("8") >1:
+        if data["hand"].count("8") >1 and data["board"].count("8") > 0:
             return data["max_bid"]
 
-        if data["hand"].count("7") >1:
+        if data["hand"].count("7") >1 and data["board"].count("7") > 0:
             return data["max_bid"]
 
-        if data["hand"].count("6") >1:
+        if data["hand"].count("6") >1 and data["board"].count("6") > 0:
             return data["max_bid"]
 
-        if data["hand"].count("5") >1:
+        if data["hand"].count("5") >1 and data["board"].count("5") > 0:
             return data["max_bid"]
 
-        if data["hand"].count("4") >1:
+        if data["hand"].count("4") >1  and data["board"].count("4") > 0:
             return data["max_bid"]
 
-        if data["hand"].count("3") >1:
+        if data["hand"].count("3") >1 and data["board"].count("3") > 0:
             return data["max_bid"]
 
-        if data["hand"].count("2") >1:
+        if data["hand"].count("2") >1 and data["board"].count("2") > 0:
             return data["max_bid"]
 
         return data["min_bid"]
