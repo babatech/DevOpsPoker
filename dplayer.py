@@ -8,8 +8,8 @@
 # -----------------------------------------------------------
 # Configuration
 # You need to change the setting according to your environment
-gregister_url='http://localhost:5001'
-glocalip_adr='127.0.0.1'
+gregister_url='http://192.168.8.100:5001'
+glocalip_adr='192.168.8.104'
 
 # -----------------------------------------------------------
 
@@ -66,8 +66,8 @@ class PokerPlayerAPI(Resource):
     # @return a dictionary containing the following values
     #         bid  : a number between 0 and max_bid
     def __get_bid(self, data):
-
-        return 0
+        if data.bid == 0  and data.min_bid == 0:
+         return data.max_bid/8
 
     # dispatch incoming get commands
     def get(self, command_id):
