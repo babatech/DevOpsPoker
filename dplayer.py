@@ -65,13 +65,53 @@ class PokerPlayerAPI(Resource):
     def __get_bid(self, data):
         #   -- call --
         #   (bid == min_bid) and (min_bid > 0)
+        print(data)
+        if data["hand"].count("A") >1:
+            return data["max_bid"]
 
-        if data['min_bid'] == 0:
-         return data['max_bid']/6
+        if data["hand"].count("K") >1:
+            return data["max_bid"]
 
-         #   -- raise --
-        if data['min_bid'] > 0 and data['big_blind'] < data['max_bid']:
-            return  data['big_blind'] + 1
+        if data["hand"].count("Q") >1:
+            return data["max_bid"]
+
+        if data["hand"].count("J") >1:
+            return data["max_bid"]
+
+        if data["hand"].count("T") >1:
+            return data["max_bid"]
+
+        if data["hand"].count("9") >1:
+            return data["max_bid"]
+
+
+        if data["hand"].count("8") >1:
+            return data["max_bid"]
+
+        if data["hand"].count("7") >1:
+            return data["max_bid"]
+
+        if data["hand"].count("6") >1:
+            return data["max_bid"]
+
+        if data["hand"].count("5") >1:
+            return data["max_bid"]
+
+        if data["hand"].count("4") >1:
+            return data["max_bid"]
+
+        if data["hand"].count("3") >1:
+            return data["max_bid"]
+
+        if data["hand"].count("2") >1:
+            return data["max_bid"]
+
+        return data["min_bid"]
+
+
+
+
+
 
 
     # dispatch incoming get commands
