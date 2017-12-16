@@ -39,12 +39,9 @@ class PokerPlayerAPI(Resource):
     #   -- check --
     #   (bid == 0) and (min_bid == 0) -> check
     #
-    #   -- call --
-    #   (bid == min_bid) and (min_bid > 0)
+
     #
-    #   -- raise --
-    #   min_bid + big_blind + x
-    #   x is any value to increase on top of the Big blind
+
     #
     #   -- all in --
     #   bid == max_bid -> all in
@@ -66,17 +63,15 @@ class PokerPlayerAPI(Resource):
     # @return a dictionary containing the following values
     #         bid  : a number between 0 and max_bid
     def __get_bid(self, data):
+        #   -- call --
+        #   (bid == min_bid) and (min_bid > 0)
+
         if data['min_bid'] == 0:
          return data['max_bid']/6
 
-        #   bid < min_bid
-        #   bid > max_bid -> ** error **
-        #   (bid > min_bid) and (bid < (min_bid+big_blind)) -> ** error **
-        # -- fold --
-    #   bid < min_bid
-    #   bid > max_bid -> ** error **
-    #   (bid > min_bid) and (bid < (min_bid+big_blind)) -> ** error **
-    #
+         #   -- raise --
+        if data['min_bid'] > 0 and data['big_blind'] < data['max_bid']:
+            return  data['big_blind'] + 1
 
 
     # dispatch incoming get commands
